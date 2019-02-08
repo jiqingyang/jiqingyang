@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>新年快乐</title>
+    <meta charset="utf-8">
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta content="maizuo-fe" name="author">
+    <meta name="copyright" content="Copyright (c) 2015 Maizuo-fe.">
+    <meta content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="blank" name="apple-mobile-web-app-status-bar-style">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta content="telephone=no" name="format-detection">
+    <meta name="description" content="">
+    <meta name="viewport" content="initial-scale=1,user-scalable=no">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link href="https://assets.maizuo.com/h5/v5/public/app/css/app.de47588c6d3adf967c347a6022dd5ec3.css" rel="stylesheet">
+    <script async="" src="https://assets.growingio.com/2.1/gio.js"></script>
+    <script type="text/javascript" charset="utf-8" async="" src="https://assets.maizuo.com/h5/v5/public/app/js/38.d2bf1a22b1b4a4921f95.js"></script>
+    <script type="text/javascript" charset="utf-8" async="" src="https://assets.maizuo.com/h5/v5/public/app/js/11.cc62bdbb4f0ff663987c.js"></script>
+    <script type="text/javascript" charset="utf-8" async="" src="https://assets.maizuo.com/h5/v5/public/app/js/27.7d66256d2210cd73e629.js"></script>
+    <style type="text/css"></style>
+    <style type="text/css"></style>
+    <style type="text/css">
+        .mint-swipe,
+        .mint-swipe-items-wrap {
+            overflow: hidden;
+            position: relative;
+            height: 100%
+        }
+        
+        .mint-swipe-items-wrap>div {
+            position: absolute;
+            -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+            width: 100%;
+            height: 100%;
+            display: none
+        }
+        
+        .mint-swipe-items-wrap>div.is-active {
+            display: block;
+            -webkit-transform: none;
+            transform: none
+        }
+        
+        .mint-swipe-indicators {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            -webkit-transform: translateX(-50%);
+            transform: translateX(-50%)
+        }
+        
+        .mint-swipe-indicator {
+            width: 8px;
+            height: 8px;
+            display: inline-block;
+            border-radius: 100%;
+            background: #000;
+            opacity: .2;
+            margin: 0 3px
+        }
+        
+        .mint-swipe-indicator.is-active {
+            background: #fff
+        }
+    </style>
+    <style type="text/css">
+        .film-list {
+            position: relative
+        }
+        
+        .film-list .city-fixed {
+            position: absolute;
+            top: 18px;
+            left: 7px;
+            color: #fff;
+            z-index: 10;
+            font-size: 13px;
+            background: rgba(0, 0, 0, .2);
+            height: 30px;
+            line-height: 30px;
+            border-radius: 15px;
+            text-align: center;
+            padding: 0 5px
+        }
+        
+        .film-list .city {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center
+        }
+        
+        .film-list .city i {
+            vertical-align: top
+        }
+        
+        .film-list .city i,
+        .film-list .city span {
+            display: inline-block;
+            height: 16px;
+            line-height: 16px
+        }
+        
+        .film-list .city span {
+            font-size: 13px;
+            max-width: 58px;
+            overflow: hidden;
+            -o-text-overflow: ellipsis;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            color: #191a1b;
+            padding-right: 5px
+        }
+        
+        .film-list .tab-wrap {
+            position: fixed;
+            top: 44px
+        }
+    </style>
+    <style type="text/css">
+        .billboards[data-v-6696dfad] {
+            height: 56vw
+        }
+        
+        .billboards .item-wrap[data-v-6696dfad] {
+            height: 100%;
+            width: 100%;
+            display: block
+        }
+    </style>
+    <style type="text/css">
+        .tabs-bar-wrapper {
+            position: relative;
+            z-index: 100;
+            width: 100%;
+            overflow-x: hidden;
+            background: #fff;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+        }
+        
+        .tabs-bar-wrapper a {
+            text-decoration: none
+        }
+        
+        .tabs-bar-wrapper li,
+        .tabs-bar-wrapper ul {
+            margin: 0;
+            padding: 0;
+            list-style: none
+        }
+        
+        .tabs-bar-wrapper .tabs-bar {
+            height: 49px;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+            overflow-x: auto;
+            overflow-y: hidden;
+            -webkit-overflow-scrolling: touch;
+            -webkit-transition: -webkit-transform .2s cubic-bezier(.35, 0, .25, 1);
+            transition: -webkit-transform .2s cubic-bezier(.35, 0, .25, 1);
+            -o-transition: transform .2s cubic-bezier(.35, 0, .25, 1);
+            transition: transform .2s cubic-bezier(.35, 0, .25, 1);
+            transition: transform .2s cubic-bezier(.35, 0, .25, 1), -webkit-transform .2s cubic-bezier(.35, 0, .25, 1);
+            position: relative
+        }
+        
+        .tabs-bar-wrapper .tabs-bar::-webkit-scrollbar {
+            display: none
+        }
+        
+        .tabs-bar-wrapper .tabs-bar:after {
+            content: " ";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            height: 1px;
+            border-bottom: 1px solid #ededed;
+            color: #ededed;
+            -webkit-transform-origin: 0 100%;
+            -ms-transform-origin: 0 100%;
+            transform-origin: 0 100%;
+            -webkit-transform: scaleY(.5);
+            -ms-transform: scaleY(.5);
+            transform: scaleY(.5)
+        }
+        
+        .tabs-bar-wrapper .tabs-bar .tabs-nav {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            display: -webkit-flex;
+            -webkit-box-pack: start;
+            -webkit-justify-content: flex-start;
+            -ms-flex-pack: start;
+            justify-content: flex-start;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+            position: relative;
+            width: 100%
+        }
+        
+        .tabs-bar-wrapper .tabs-bar .tabs-nav li {
+            -ms-flex-negative: 0;
+            flex-shrink: 0;
+            -webkit-flex-shrink: 0;
+            color: #191a1b;
+            text-align: center;
+            height: 16px;
+            line-height: 16px;
+            font-size: 14px;
+            cursor: pointer;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+        }
+        
+        .tabs-bar-wrapper .tabs-bar .tabs-nav li.active {
+            color: #ff5f16
+        }
+        
+        .tabs-bar-wrapper .tabs-bar .tabs-nav .tab-ink-bar-wrapper {
+            position: absolute;
+            margin: auto;
+            top: 30px;
+            left: 0;
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+            -webkit-transition: -webkit-transform .2s cubic-bezier(.35, 0, .25, 1);
+            transition: -webkit-transform .2s cubic-bezier(.35, 0, .25, 1);
+            -o-transition: transform .2s cubic-bezier(.35, 0, .25, 1);
+            transition: transform .2s cubic-bezier(.35, 0, .25, 1);
+            transition: transform .2s cubic-bezier(.35, 0, .25, 1), -webkit-transform .2s cubic-bezier(.35, 0, .25, 1)
+        }
+        
+        .tabs-bar-wrapper .tabs-bar .tabs-nav .tab-ink-bar-wrapper .tab-ink-bar {
+            border-bottom: 2px solid #ff5f16;
+            border-radius: 20px;
+            display: block;
+            margin: auto
+        }
+    </style>
+    <style type="text/css">
+        .home-act-view .float-layer-view {
+            height: 100%;
+            width: 100%;
+            background: rgba(0, 0, 0, .6);
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            color: #fff;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: center;
+            -webkit-justify-content: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center
+        }
+        
+        .home-act-view .float-layer-view .act-view {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate3d(-50%, -50%, 0);
+            transform: translate3d(-50%, -50%, 0);
+            -webkit-transition: all .1s ease;
+            -o-transition: all .1s ease;
+            transition: all .1s ease
+        }
+        
+        @media (max-width:375px) and (min-width:320px) {
+            .home-act-view .float-layer-view .act-view {
+                width: 80.53333vw
+            }
+        }
+        
+        @media (min-width:375px) {
+            .home-act-view .float-layer-view .act-view {
+                width: 302px
+            }
+        }
+        
+        .home-act-view .float-layer-view .act-view .float-img {
+            width: 100%;
+            display: block;
+            border-radius: 6px
+        }
+        
+        .home-act-view .float-layer-view .act-view .close-btn {
+            display: block;
+            padding-top: 15px;
+            width: 35px;
+            height: 35px;
+            position: absolute;
+            left: 50%;
+            margin-left: -17.5px
+        }
+        
+        .home-act-view .icon-banner {
+            z-index: 100;
+            position: fixed;
+            bottom: 150px;
+            right: 10px;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: center;
+            -webkit-justify-content: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center
+        }
+    </style>
+    <style type="text/css">
+        .nowPlayingList-wrap {
+            background-color: #fff
+        }
+        
+        .nowPlayingList-wrap .err-cover {
+            width: 100%;
+            z-index: 3000;
+            position: fixed;
+            background-color: #fff
+        }
+        
+        .nowPlayingList-wrap .err-cover .cover-content {
+            position: absolute;
+            top: 107px;
+            width: 100%;
+            text-align: center
+        }
+        
+        .nowPlayingList-wrap .err-cover .cover-content img {
+            width: 90px;
+            margin: auto
+        }
+        
+        .nowPlayingList-wrap .err-cover .cover-content p {
+            color: #bdc0c5;
+            font-size: 14px;
+            margin: 0
+        }
+        
+        .nowPlayingList-wrap ul {
+            list-style: none;
+            padding: 0;
+            margin-left: 15px;
+            margin-bottom: 0;
+            margin-top: 0
+        }
+        
+        .nowPlayingList-wrap li {
+            padding: 15px 15px 15px 0;
+            height: 94px;
+            position: relative
+        }
+        
+        .nowPlayingList-wrap li:after {
+            content: " ";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            height: 1px;
+            border-bottom: 1px solid #ededed;
+            color: #ededed;
+            -webkit-transform-origin: 0 100%;
+            -ms-transform-origin: 0 100%;
+            transform-origin: 0 100%;
+            -webkit-transform: scaleY(.5);
+            -ms-transform: scaleY(.5);
+            transform: scaleY(.5)
+        }
+        
+        .nowPlayingList-wrap li .nowPlayingFilm-wrap {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: start;
+            -webkit-justify-content: flex-start;
+            -ms-flex-pack: start;
+            justify-content: flex-start;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center
+        }
+        
+        .nowPlayingList-wrap li .nowPlayingFilm-wrap .nowPlayingFilm-img .lazy-img-wrap,
+        .nowPlayingList-wrap li .nowPlayingFilm-wrap .nowPlayingFilm-img img {
+            border-radius: 2px
+        }
+        
+        .nowPlayingList-wrap li .nowPlayingFilm-info {
+            width: calc(100% - 116px);
+            padding: 0 10px
+        }
+        
+        .nowPlayingList-wrap li .nowPlayingFilm-info .info-col {
+            overflow: hidden;
+            -o-text-overflow: ellipsis;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 100%
+        }
+        
+        .nowPlayingList-wrap li .nowPlayingFilm-info .nowPlayingFilm-name span {
+            display: inline-block;
+            vertical-align: middle
+        }
+        
+        .nowPlayingList-wrap li .nowPlayingFilm-info .nowPlayingFilm-name .name {
+            max-width: calc(100% - 25px);
+            color: #191a1b;
+            font-size: 16px;
+            height: 22px;
+            line-height: 22px;
+            margin-right: 5px;
+            overflow: hidden;
+            -o-text-overflow: ellipsis;
+            text-overflow: ellipsis;
+            white-space: nowrap
+        }
+        
+        .nowPlayingList-wrap li .nowPlayingFilm-info .nowPlayingFilm-name .item {
+            font-size: 9px;
+            color: #fff;
+            background-color: #d2d6dc;
+            height: 14px;
+            line-height: 14px;
+            padding: 0 2px;
+            border-radius: 2px
+        }
+        
+        .nowPlayingList-wrap li .nowPlayingFilm-info .label {
+            font-size: 13px;
+            margin-top: 4px;
+            color: #797d82
+        }
+        
+        .nowPlayingList-wrap li .nowPlayingFilm-info .nowPlayingFilm-grade .grade {
+            color: #ffb232;
+            font-size: 14px
+        }
+        
+        .nowPlayingList-wrap li .nowPlayingFilm-buy {
+            line-height: 25px;
+            height: 25px;
+            width: 50px;
+            color: #ff5f16;
+            font-size: 13px;
+            text-align: center;
+            border-radius: 2px;
+            position: relative
+        }
+        
+        .nowPlayingList-wrap li .nowPlayingFilm-buy:after {
+            content: " ";
+            -webkit-transform: scale(.5);
+            -ms-transform: scale(.5);
+            transform: scale(.5);
+            position: absolute;
+            border: 1px solid #ff5f16;
+            top: -50%;
+            right: -50%;
+            bottom: -50%;
+            left: -50%;
+            border-radius: 4px
+        }
+        
+        .nowPlayingList-wrap li .nowPlayingFilm-buy:active {
+            background: #ff5f16;
+            color: #fff
+        }
+        
+        .nowPlayingList-wrap .no-more {
+            height: 59px;
+            background-color: #ededed;
+            color: #bdc0c5;
+            font-size: 13px;
+            text-align: center;
+            margin: auto;
+            line-height: 59px
+        }
+        
+        .nowPlayingList-wrap .page-infinite-loading {
+            text-align: center;
+            height: 50px;
+            line-height: 50px;
+            background-color: #ededed;
+            color: #bdc0c5;
+            margin: 0
+        }
+        
+        .nowPlayingList-wrap .page-infinite-loading span {
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 5px
+        }
+    </style>
+    <style id="tsbrowser_video_independent_player_style" type="text/css">
+        [tsbrowser_force_max_size] {
+            width: 100% !important;
+            height: 100% !important;
+            left: 0px !important;
+            top: 0px !important;
+            margin: 0px !important;
+            padding: 0px !important;
+        }
+        
+        [tsbrowser_force_fixed] {
+            position: fixed !important;
+            z-index: 9999 !important;
+            background: black !important;
+        }
+        
+        [tsbrowser_force_hidden] {
+            opacity: 0 !important;
+            z-index: 0 !important;
+        }
+        
+        [tsbrowser_hide_scrollbar] {
+            overflow: hidden !important;
+        }
+    </style>
+    <style type="text/css">
+        .lazy-img[data-v-fa55ebd6] {
+            position: relative
+        }
+        
+        .lazy-img .padding[data-v-fa55ebd6] {
+            background: #f4f4f4
+        }
+        
+        .lazy-img .lazy-img-wrap[data-v-fa55ebd6],
+        .lazy-img .padding[data-v-fa55ebd6] {
+            height: 56vw;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: center;
+            -webkit-justify-content: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center
+        }
+        
+        .lazy-img .lazy-img-wrap[data-v-fa55ebd6] {
+            width: 100%;
+            background: #fff;
+            position: absolute;
+            overflow: hidden;
+            top: 0;
+            opacity: 0
+        }
+        
+        .lazy-img .lazy-img-wrap img[data-v-fa55ebd6] {
+            left: 0
+        }
+        
+        .lazy-img .lazy-img-wrap .target-img[data-v-fa55ebd6] {
+            width: 100%;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            -moz-transform: translateY(-50%);
+            -webkit-transform: translateY(-50%);
+            -o-transform: translateY(-50%)
+        }
+    </style>
+    <script type="text/javascript" charset="utf-8" async="" src="https://assets.maizuo.com/h5/v5/public/app/js/28.23b119112d2c635c0996.js"></script>
+    <style type="text/css">
+        .comingSoon-wrap {
+            background-color: #fff
+        }
+        
+        .comingSoon-wrap .err-cover {
+            width: 100%;
+            z-index: 3000;
+            position: fixed;
+            background-color: #fff
+        }
+        
+        .comingSoon-wrap .err-cover .cover-content {
+            position: absolute;
+            top: 107px;
+            width: 100%;
+            text-align: center
+        }
+        
+        .comingSoon-wrap .err-cover .cover-content img {
+            width: 90px;
+            margin: auto
+        }
+        
+        .comingSoon-wrap .err-cover .cover-content p {
+            color: #bdc0c5;
+            font-size: 14px;
+            margin: 0
+        }
+        
+        .comingSoon-wrap ul {
+            list-style: none;
+            padding: 0;
+            margin-left: 15px;
+            margin-bottom: 0;
+            margin-top: 0
+        }
+        
+        .comingSoon-wrap li {
+            padding: 15px 15px 15px 0;
+            height: 94px;
+            position: relative
+        }
+        
+        .comingSoon-wrap li:after {
+            content: " ";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            height: 1px;
+            border-bottom: 1px solid #ededed;
+            color: #ededed;
+            -webkit-transform-origin: 0 100%;
+            -ms-transform-origin: 0 100%;
+            transform-origin: 0 100%;
+            -webkit-transform: scaleY(.5);
+            -ms-transform: scaleY(.5);
+            transform: scaleY(.5)
+        }
+        
+        .comingSoon-wrap li .comingSoonFilm-wrap {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: start;
+            -webkit-justify-content: flex-start;
+            -ms-flex-pack: start;
+            justify-content: flex-start;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center
+        }
+        
+        .comingSoon-wrap li .comingSoonFilm-wrap .comingSoonFilm-img .lazy-img-wrap,
+        .comingSoon-wrap li .comingSoonFilm-wrap .comingSoonFilm-img img {
+            border-radius: 2px
+        }
+        
+        .comingSoon-wrap li .comingSoonFilm-info {
+            width: calc(100% - 116px);
+            padding: 0 10px
+        }
+        
+        .comingSoon-wrap li .comingSoonFilm-info .info-col {
+            overflow: hidden;
+            -o-text-overflow: ellipsis;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 100%
+        }
+        
+        .comingSoon-wrap li .comingSoonFilm-info .comingSoonFilm-name span {
+            display: inline-block;
+            vertical-align: middle
+        }
+        
+        .comingSoon-wrap li .comingSoonFilm-info .comingSoonFilm-name .name {
+            max-width: calc(100% - 25px);
+            color: #191a1b;
+            font-size: 16px;
+            height: 22px;
+            line-height: 22px;
+            margin-right: 5px;
+            overflow: hidden;
+            -o-text-overflow: ellipsis;
+            text-overflow: ellipsis;
+            white-space: nowrap
+        }
+        
+        .comingSoon-wrap li .comingSoonFilm-info .comingSoonFilm-name .item {
+            font-size: 9px;
+            color: #fff;
+            background-color: #d2d6dc;
+            height: 14px;
+            line-height: 14px;
+            padding: 0 2px;
+            border-radius: 2px
+        }
+        
+        .comingSoon-wrap li .comingSoonFilm-info .label {
+            font-size: 13px;
+            margin-top: 4px;
+            color: #797d82
+        }
+        
+        .comingSoon-wrap li .comingSoonFilm-info .comingSoonFilm-grade .grade {
+            color: #ffb232;
+            font-size: 14px
+        }
+        
+        .comingSoon-wrap li .comingSoonFilm-buy {
+            float: right;
+            line-height: 25px;
+            height: 25px;
+            width: 50px;
+            color: #ffb232;
+            font-size: 13px;
+            text-align: center;
+            border-radius: 2px;
+            position: relative
+        }
+        
+        .comingSoon-wrap li .comingSoonFilm-buy:after {
+            content: " ";
+            -webkit-transform: scale(.5);
+            -ms-transform: scale(.5);
+            transform: scale(.5);
+            position: absolute;
+            border: 1px solid #ffb232;
+            top: -50%;
+            right: -50%;
+            bottom: -50%;
+            left: -50%;
+            border-radius: 4px
+        }
+        
+        .comingSoon-wrap li .comingSoonFilm-buy:active {
+            background: #ffb232;
+            color: #fff
+        }
+        
+        .comingSoon-wrap .no-more {
+            height: 59px;
+            background-color: #ededed;
+            color: #bdc0c5;
+            font-size: 13px;
+            text-align: center;
+            margin: auto;
+            line-height: 59px
+        }
+        
+        .comingSoon-wrap .page-infinite-loading {
+            text-align: center;
+            height: 50px;
+            line-height: 50px;
+            background-color: #ededed;
+            color: #bdc0c5;
+            margin: 0
+        }
+        
+        .comingSoon-wrap .page-infinite-loading span {
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 5px
+        }
+    </style>
+    <style type="text/css">
+        header[data-v-2475a5f8] {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 44px;
+            line-height: 44px;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            z-index: 3000;
+            background-color: #fff;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex
+        }
+        
+        header>div[data-v-2475a5f8] {
+            float: left;
+            height: 44px
+        }
+        
+        header[data-v-2475a5f8]:after {
+            content: " ";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            height: 1px;
+            border-bottom: 1px solid #ededed;
+            color: #ededed;
+            -webkit-transform-origin: 0 100%;
+            -ms-transform-origin: 0 100%;
+            transform-origin: 0 100%;
+            -webkit-transform: scaleY(.5);
+            -ms-transform: scaleY(.5);
+            transform: scaleY(.5)
+        }
+        
+        header i[data-v-2475a5f8] {
+            display: block;
+            font-size: 23px;
+            color: #191a1b
+        }
+        
+        header .left[data-v-2475a5f8] {
+            min-width: 15%;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: start;
+            -webkit-justify-content: flex-start;
+            -ms-flex-pack: start;
+            justify-content: flex-start;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+            margin-left: 15px
+        }
+        
+        header .title[data-v-2475a5f8] {
+            text-align: center;
+            font-size: 17px;
+            color: #191a1b;
+            -webkit-box-flex: 1;
+            -webkit-flex: 1;
+            -ms-flex: 1;
+            flex: 1;
+            overflow: hidden;
+            -o-text-overflow: ellipsis;
+            text-overflow: ellipsis;
+            white-space: nowrap
+        }
+        
+        header .title div[data-v-2475a5f8] {
+            color: #191a1b
+        }
+        
+        header .right[data-v-2475a5f8] {
+            width: 15%;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: center;
+            -webkit-justify-content: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+            margin-right: 15px
+        }
+        
+        header .right div[data-v-2475a5f8] {
+            width: 100%;
+            text-align: right
+        }
+    </style>
+    <style type="text/css" title="fading circle style">
+        .circle-color-175>div::before {
+            background-color: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+</body>
+
+</html>
